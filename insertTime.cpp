@@ -9,12 +9,12 @@
 #include<iostream>
 #include<fstream>
 #include<cstdlib>
-#include<chrono>
+#include<ctime>
 #include<iomanip>
 
 
 using namespace std;
-using ms = chrono::milliseconds;
+
 
 void insertion_sort(int*, int); 
 void timer(int*, int, ofstream&, int*);
@@ -101,16 +101,14 @@ void insertion_sort( int *unsorted, int array_size){
 *************************************************************************************************/ 
 void timer (int *array, int array_size, ofstream &file, int *average){
 
-    //this section is the timer block that times the insertion sort algorithm
-    //the time unit is in milliseconds
-    auto start = chrono::steady_clock::now(); // start the clock timing
-        insertion_sort (array, array_size); // insertion sort call
-    auto end = chrono::steady_clock::now(); // ends the clock timing
-    auto diff = end - start; // final minus the intial will give the actually time ran.
+    clock_t start, stop; // creates two clock type varibles start and stop
+    start = clock(); // assgining the value to 
+        insertion_sort (array, array_size); // insertion sort called 
+    stop = clock();
+  
+    *average += (stop - start) / (CLOCKS_PER_SEC / 1000); 
+    cout<< left << setw(5) << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing to console (mS)
+    file << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing numbers to out file (mS)*/
 
-    // this add the time values together, this recreate a running total, and 
-    // in main this number is divided by 3, to get runtime average of 3 trials of the same n size
-    *average += chrono::duration_cast<ms>(diff).count(); 
-    cout<< left << setw(5) << chrono::duration_cast<ms>(diff).count() << " "; // outputs the timing to console (mS)
-    file << chrono::duration_cast<ms>(diff).count() << " "; // outputs the timing numbers to out file (mS)
+    
 } 

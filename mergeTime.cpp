@@ -1,45 +1,44 @@
-/*******************************************************************
- ** mergesort.cpp 
+/***********************************************************************************
+ ** mergeTime.cpp 
  ** WeiHao Kuang
  ** 06/28/2018
- ** Merge sort algorithm with input and out file streams
- ** Input file "data.txt"
- ** Output file "merge.out"
-*******************************************************************/
+ ** Merge sort algorithm run time calculation
+ ** Internal input from random number generator
+ ** Output file "mergeTime.out"
+***************************************************************************************/
 #include<iostream>
 #include<fstream>
-#include<chrono>
+#include<ctime>
 #include<cstdlib>
 #include<iomanip>
 
 using namespace std;
-using  ms = chrono::milliseconds;
-using get_time = chrono::steady_clock;
+
 
 void timer(int*, int, ofstream&, int*);
 void merge_sort(int*, int, int);
 void merge(int*, int);
 
 int main () {
-    int array_size = 14;
+    int array_size = 14; // this variable signifies how many array there will be for 70000 size n
     int size = 0, average = 0;
-    ofstream mergeTime;
+    ofstream mergeTime; // creates an object insertTime for output file
 
-    mergeTime.open("mergeTime.out");
-    srand (time(NULL));
+    mergeTime.open("mergeTime.out"); // opens a mergeTime.out file to store the times values 
+    srand (time(NULL)); //seeds the random function generator
 
-    for (int i = 0; i < array_size; i++){
+    for (int i = 0; i < array_size; i++){ // this loop wil run 14 times to reach n of 70000
       
-        size = size + 5000;
-        int array[size];
+        size = size + 5000; // increments the size of the n by 5000 every itertation
+        int array[size]; // temp array to store random ints generated
         mergeTime << size << " "; // used to write n size to external file
         cout<< "n=" <<right << setw(5) << size << "  "; // used to write n size to the terminal
 
-        for ( int a = 0; a < 3; a++) {
+        for ( int a = 0; a < 3; a++) { // 3 iterations; because there will 3 trial for every n
             for ( int j = 0; j < size; j++ ){
-                array[j] = rand()%10000;
+                array[j] = rand()%10000; // randomly generate a number 0 - 10000
             }
-            timer (array, size, mergeTime, &average);
+            timer (array, size, mergeTime, &average); // calls timer funciton
         }
 
         cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
@@ -49,30 +48,30 @@ int main () {
     }
     return 0;
 }
-/************************************************************************************************
+/************************************************************************************************************
 ** Function: timer 
 ** Description: times the merge sort algo. time is in milliseconds
 ** Parameters: int unsort pointer (array) and average, int array_size, ofstream file 
 ** Pre-Conditions: Must have a valid array passed int, and a non-neg int, and availble file name
 ** Post-Conditions: there will there will be the run time and averages posted
-*************************************************************************************************/ 
+******************************************************************************************************************/ 
 void timer (int *array, int array_size, ofstream& file, int *average){
-    auto start = chrono::steady_clock::now(); 
-        merge_sort (array, 0, array_size - 1);
-    auto end = chrono::steady_clock::now();
-    auto diff = end - start;
+    clock_t start, stop; // creates the clock objects
+    start = clock(); // start clock
+        merge_sort (array, 0, array_size - 1); //calls merge sort to time
+    stop = clock(); // end clock 
 
-    *average += chrono::duration_cast<ms>(diff).count(); 
-    cout<< left << setw(5) << chrono::duration_cast<ms>(diff).count() << " "; // outputs the timing to console (mS)
-    file << chrono::duration_cast<ms>(diff).count() << " "; // outputs the timing numbers to out file (mS)
+    *average += (stop - start) / (CLOCKS_PER_SEC / 1000); // this will keep a total of the time for every trial (used for average)
+    cout<< left << setw(5) << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing to console (mS)
+    file << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing numbers to out file (mS)
 } 
-/*********************************************************************
+/***************************************************************************************************************
 ** Function: merge
 ** Description: merges 2 sub arrays into one
 ** Parameters: array pointer, int left, middle and right
 ** Pre-Conditions: must be a valid array pointer, right ints passed in
 ** Post-Conditions: the inputted array will be ordered
-*********************************************************************/ 
+****************************************************************************************************************/ 
 void merge(int *array, int left, int middle, int right)
 {
     int i, j, k;
@@ -119,13 +118,13 @@ void merge(int *array, int left, int middle, int right)
         k++; // k is increment to make to move down the array for every int added to the array
     }
 }
- /*********************************************************************
+ /********************************************************************************************************************
 ** Function: merge_sort
 ** Description: sorts the array passed in using merger sort algo
 ** Parameters: array pointer, int left and right
 ** Pre-Conditions: must be a valid array
 ** Post-Conditions: passed in array is sorted
-*********************************************************************/ 
+************************************************************************************************************************/ 
 void merge_sort(int *array, int left, int right){
     
     if (left < right) { //condition for 
