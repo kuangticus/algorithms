@@ -10,6 +10,7 @@ insertTime.out
 mergeTime.out
 
 /*************************************************************************************************************************/
+
 CPP file notes:
 
 insertsort.cpp and mergesort.cpp fullfil question 4 of the homework.
@@ -21,6 +22,7 @@ insert sort alogrithms. I will also include the tables insertTime.out and megerT
 the written homework.
 
 /************************************************************************************************************************/
+
 CPP compile notes and running notes
 
 All of th CPP files like so:
@@ -31,6 +33,7 @@ g++ insertTime.cpp /* after running the program the output will be on the consol
 g++ mergeTime.cpp /* after running the program the output will be on the console/terminal and file "mergeTime.out" */
 
 /*************************************************************************************************************************/
+
 Format of the tables in mergeTime.out and insertTime.out
 
 | n size | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
