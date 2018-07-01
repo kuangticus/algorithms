@@ -45,6 +45,7 @@ int main () {
             // since the temp array gets filled with new values every iteration of the while loop.
             merge_sort(array, 0, array_size - 1);
             print_array(array, sorted, array_size);
+            array_size = 0; // reset the value of array size so that, reintializing
         }
          sorted.close(); // closes the file that is used for writing 
     }

@@ -42,6 +42,7 @@ int main () {
             // cleared every iteration.
             insertion_sort (array, array_size); 
             print_array(array, sorted, array_size);
+            array_size = 0; // resets the array sizes to zero at the end reintializing
         }
     }
     sorted.close(); // closes the file that is used for writing 
