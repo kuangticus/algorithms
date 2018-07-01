@@ -8,6 +8,8 @@ insertTime.cpp
 mergeTime.cpp
 insertTime.out
 mergeTime.out
+merge_best_worst.cpp
+insert_best_wortst.cpp
 
 /*************************************************************************************************************************/
 
@@ -21,6 +23,9 @@ I also included the tables that I will be using to graph the runtime of both the
 insert sort alogrithms. I will also include the tables insertTime.out and megerTime.out with 
 the written homework.
 
+merge_best_worst.cpp and insert_best_worst.cpp are cpp files that fufill the requirement of the the extra credit from 
+Homework 1.
+
 /************************************************************************************************************************/
 
 CPP compile notes and running notes
@@ -31,6 +36,8 @@ g++ insertsort.cpp /* after running the program the output file will be "insert.
 g++ mergesort.cpp /* after running the program the output file will be "merge.out" */
 g++ insertTime.cpp /* after running the program the output will be on the console/terminal and file "insertTime.txt" */
 g++ mergeTime.cpp /* after running the program the output will be on the console/terminal and file "mergeTime.txt" */
+g++ merge_best_worst.cpp
+g++ insert_best_worst.cpp
 
 /*************************************************************************************************************************/
 
