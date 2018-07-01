@@ -15,7 +15,7 @@
 using namespace std;
 
 void insertion_sort(int*, int); 
-void timer(int*, int, ofstream&, int*);
+void timer(int*, int, int*);
 
 /**************************************************************************************************
 ** Function: main
@@ -25,45 +25,42 @@ void timer(int*, int, ofstream&, int*);
 ** Post-Conditions: The unsorted array will be sorted
 **************************************************************************************************/ 
 int main () {
-    int array_size = 14; // 5000 - 70000; by increments of 5000
-    int size = 0, average = 0;
-    ofstream insertTime; // creates an object insertTime for output file
+    clock_t start, stop;
+    int average = 0;
+    int *array = new int[50000]; // dynamic array
 
-    insertTime.open("insertTime.txt"); // creates a text file to store the runtimes and averages to make a table
-    srand (time(NULL)); // seeds the rand function generator 
-
-    for (int i = 0; i < array_size; i++){ // this for loop is looping through the 14 differne sample sizes
-      
-        size = size + 5000; //increments 5000 every iteration from 0 -> 70000
-        int array[size]; // temp array used for storing the randomly generated data
-        insertTime << size << " "; // used to write n size to external file
-        cout<< "n=" <<right << setw(5) << size << "  "; // used to write n size to the terminal
-
-        // loops three times to generate 3 diff results for same n value
-        // and then an average is taken to be used for graphing
-        for ( int a = 0; a < 3; a++ ) { 
-            for ( int j = 0; j < size; j++ ){
-                array[j] = rand()%10000;
-            }
-            // calls the timer function which is responisble for 
-            // time how long the algorithm runs
-            // timing values are in milliseconds
-            timer (array, size, insertTime, &average);
+    // best case generation, where the numbers are already ordered when the array is fill
+    // runs three trials and gets the average complextiy is n
+    cout <<  right << setw(12) << "Best Case:  " ;
+    for ( int j = 0; j  < 3; j++ ) { // 3 iterations to get average
+        for (int i = 0; i < 50000; i++){ //=fills the array from 0 -> 90000 in ascending order  
+            array[i] = i + j; // I add j everytime to create trial variation (still ascending order)
         }
-        
+        timer (array, 50000, &average); // calling the timing funciton
+    }
+    cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
+    
+    average = 0; // average resets to zero everytime time 3 trials of the same n run thru
 
-        cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
-        insertTime << (float)average/3 << endl; // aveage times of 3 trials, outputted to external table
-        average = 0; // average resets to zero everytime time 3 trials of the same n run thru
-
+    /// worst case generation, where the numbers are order in decending order when the array is fill
+    // runs three trials and gets the average  complexity in n^2
+    cout << right << setw(1) << "Worst Case:  " ;
+    for ( int j = 0; j  < 3; j++ ) { // 3 trials to get an average, hence 3 iterations
+        for (int i = 0; i < 50000; i++){ // fills array array from 90000 -> 0 
+            array[i] = 50000 - i; // I subtract j everytime to create variation every trial(still descending order)
+        }
+        timer (array, 50000,  &average); // calls the timing funciton
+    }
+    cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
+  
         /* NOTE!!: The outputted table on both the console and the .out file is in this following format:
 
-        | n size | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | average time (mS)|
+        | case type | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | average time (mS)|
         
         this format will be consitent for n size ranging from 5000 - 70000 by increments of 5000. 
         */
-
-    }
+  
+    delete array; // frees the dynamic memory
     return 0;
 }
 /*************************************************************************************************
@@ -93,11 +90,11 @@ void insertion_sort( int *unsorted, int array_size){
 /************************************************************************************************
 ** Function: timer 
 ** Description: times the insertion sort algo. , time is in milliseconds
-** Parameters: int unsort pointer (array) and average, int array_size, ofstream file 
+** Parameters: int unsort pointer (array) and average, int array_size,
 ** Pre-Conditions: Must have a valid array passed int, and a non-neg int, and availble file name
 ** Post-Conditions: there will there will be the run time and averages posted
 *************************************************************************************************/ 
-void timer (int *array, int array_size, ofstream &file, int *average){
+void timer (int *array, int array_size, int *average){
 
     clock_t start, stop; // creates two clock type varibles start and stop
     start = clock(); // assgining clock to start
@@ -106,5 +103,5 @@ void timer (int *array, int array_size, ofstream &file, int *average){
   
     *average += ((stop - start) / (CLOCKS_PER_SEC / 1000)); // addes a running value for time 3 trials
     cout<< left << setw(5) << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing to console (mS)
-    file << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing numbers to out file (mS)*/
+  
 } 

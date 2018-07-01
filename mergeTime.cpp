@@ -5,7 +5,7 @@
  ** Merge sort algorithm run time calculation
  ** Internal input from random number generator
  ** Output file "mergeTime.txt"
- ** Citation:http://tutorialheap.com/cpp-program-implement-merge-sort/: used as reference
+ ** Citation:https://www.geeksforgeeks.org/merge-sort/: used as reference
 ***************************************************************************************/
 #include<iostream>
 #include<fstream>

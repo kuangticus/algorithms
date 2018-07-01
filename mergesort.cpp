@@ -5,7 +5,7 @@
  ** Merge sort algorithm with input and out file streams
  ** Input file "data.txt"
  ** Output file "merge.out"
- ** Citation:http://tutorialheap.com/cpp-program-implement-merge-sort/ :used as reference
+ ** Citation:https://www.geeksforgeeks.org/merge-sort/: used as reference
 ***************************************************************************************/
 #include<iostream>
 #include<fstream>

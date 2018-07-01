@@ -5,7 +5,7 @@
  ** Merge sort algorithm run time calculation, for best and worth case 
  ** Internal input from random number generator
  ** Output file "merge_best_worst.txt"
- ** Citation:http://tutorialheap.com/cpp-program-implement-merge-sort/ :used as reference
+ ** Citation:https://www.geeksforgeeks.org/merge-sort/ :used as reference
 ***************************************************************************************/
 #include<iostream>
 #include<fstream>
@@ -16,37 +16,53 @@
 using namespace std;
 
 
-void timer(int*, int, ofstream&, int*);
+void timer(int*, int, int*);
 void merge_sort(int*, int, int);
 void merge(int*, int);
 
 int main () {
-    int array_size = 14; // this variable signifies how many array there will be for 70000 size n
-    int size = 0, average = 0;
-    ofstream mergeTime; // creates an object insertTime for output file
+     int *array = new int[1000000]; // dynamic array
+    int average = 0;
 
-    mergeTime.open("mergeTime.txt"); // opens a mergeTime.out file to store the times values 
-    srand (time(NULL)); //seeds the random function generator
-
-    for (int i = 0; i < array_size; i++){ // this loop wil run 14 times to reach n of 70000
-      
-        size = size + 5000; // increments the size of the n by 5000 every itertation
-        int array[size]; // temp array to store random ints generated
-        mergeTime << size << " "; // used to write n size to external file
-        cout<< "n=" <<right << setw(5) << size << "  "; // used to write n size to the terminal
-
-        for ( int a = 0; a < 3; a++) { // 3 iterations; because there will 3 trial for every n
-            for ( int j = 0; j < size; j++ ){
-                array[j] = rand()%10000; // randomly generate a number 0 - 10000
-            }
-            timer (array, size, mergeTime, &average); // calls timer funciton
+    // best case generation, where the numbers are already ordered when the array is fill
+    // runs three trials and gets the average  complexity n log n
+    cout <<  right << setw(13) << "Best Case:  " ;
+    for ( int j = 0; j  < 3; j++ ) { // 3 iterations to get average
+        for (int i = 0; i < 1000000; i++){ //=fills the array from 0 -> 90000 in ascending order  
+            array[i] = i + j; // I add j everytime to create trial variation (still ascending order)
         }
-
-        cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
-        mergeTime << (float)average/3 << endl; // aveage times of 3 trials, outputted to external table
-        average = 0; // average resets
-
+        timer (array, 1000000, &average); // calling the timing funciton
     }
+    cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
+    
+    average = 0; // average resets to zero everytime time 3 trials of the same n run thru
+
+    // worst case generation, where the maximum comparsion are present, every half array need to be
+    // compared, so but the complexity is still n log n
+    cout <<  right << setw(2) << "Worst Case:  " ;
+    for ( int j = 0; j  < 3; j++ ) { // 3 iterations to get average
+        for (int i = 0; i < 1000000; i++){ //cycles 1 mil times to assign evens to left array, and odds to right array 
+            if ( i <= 499999 ) {
+                if ( i % 2 == 0 ) // looks of even i's
+                    array[i] = i + (j*2) ; // fills the left half with evens, (j*2) is for trial variation
+            }
+            else{ 
+                if ( i % 2 != 0) // looks for odd i's
+                    array[i] = i + (j*2) ; // fills the right half with odds, (j*2) is for trial variation
+            }
+        }
+        timer (array, 1000000, &average); // calling the timing funciton
+    }
+    cout << (float)average/3 <<endl; // average times of 3 trials, outputed to the console
+
+        /* NOTE!!: The outputted table on both the console and the .out file is in this following format:
+
+        | case type | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | average time (mS)|
+        
+        this format will be consitent for n size ranging from 5000 - 70000 by increments of 5000. 
+        */
+    //}
+    delete [] array;
     return 0;
 }
 /************************************************************************************************************
@@ -56,7 +72,7 @@ int main () {
 ** Pre-Conditions: Must have a valid array passed int, and a non-neg int, and availble file name
 ** Post-Conditions: there will there will be the run time and averages posted
 ******************************************************************************************************************/ 
-void timer (int *array, int array_size, ofstream& file, int *average){
+void timer (int *array, int array_size, int *average){
     clock_t start, stop; // creates the clock objects
     start = clock(); // start clock
         merge_sort (array, 0, array_size - 1); //calls merge sort to time
@@ -64,7 +80,6 @@ void timer (int *array, int array_size, ofstream& file, int *average){
 
     *average += (stop - start) / (CLOCKS_PER_SEC / 1000); // this will keep a total of the time for every trial (used for average)
     cout<< left << setw(5) << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing to console (mS)
-    file << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing numbers to out file (mS)
 } 
 /***************************************************************************************************************
 ** Function: merge
@@ -131,7 +146,7 @@ void merge_sort(int *array, int left, int right){
     if (left < right) { //condition for 
         
         //divid and conquere characteristis here.
-        int middle = (left + right) / 2; // searchs for the half point of the passed in array
+        int middle = left+(right-left)/2; // searchs for the half point of the passed in array
 
         merge_sort(array, left, middle); //recursvily sorts left half
         merge_sort(array, middle + 1, right); //recusily sorts right half
