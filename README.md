@@ -42,10 +42,15 @@ CPP compile notes and running notes
 All of th CPP files like so:
 
 g++ insertsort.cpp /* after running the program the output file will be "insert.out" */
+
 g++ mergesort.cpp /* after running the program the output file will be "merge.out" */
+
 g++ insertTime.cpp /* after running the program the output will be on the console/terminal and file "insertTime.txt" */
+
 g++ mergeTime.cpp /* after running the program the output will be on the console/terminal and file "mergeTime.txt" */
+
 g++ merge_best_worst.cpp
+
 g++ insert_best_worst.cpp
 
 /*************************************************************************************************************************/
@@ -62,3 +67,7 @@ As for the tables created from merge_best_worst.cpp and insert_best_worst.cpp th
 | Case Condition | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
 
 /**************************************************************************************************************************/ 
+ Text files
+ 
+ The two text files that are include in the zip are mergeTime.txt and insertTime.cpp, these are the runtime tables for the merge
+ sort and insertion sort alogrithms, respectivley. These tables are also included in the written portion of homework 1.
