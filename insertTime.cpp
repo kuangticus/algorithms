@@ -31,7 +31,7 @@ int main () {
     int size = 0, average = 0;
     ofstream insertTime; // creates an object insertTime for output file
 
-    insertTime.open("insertTime.out"); // creates a text file to store the runtimes and averages to make a table
+    insertTime.open("insertTime.txt"); // creates a text file to store the runtimes and averages to make a table
     srand (time(NULL)); // seeds the rand function generator 
 
     for (int i = 0; i < array_size; i++){ // this for loop is looping through the 14 differne sample sizes
@@ -47,9 +47,9 @@ int main () {
             for ( int j = 0; j < size; j++ ){
                 array[j] = rand()%10000;
             }
-             // calls the timer function which is responisble for 
-             // time how long the algorithm runs
-             // timing values are in milliseconds
+            // calls the timer function which is responisble for 
+            // time how long the algorithm runs
+            // timing values are in milliseconds
             timer (array, size, insertTime, &average);
         }
         
@@ -102,13 +102,13 @@ void insertion_sort( int *unsorted, int array_size){
 void timer (int *array, int array_size, ofstream &file, int *average){
 
     clock_t start, stop; // creates two clock type varibles start and stop
-    start = clock(); // assgining the value to 
+    start = clock(); // assgining clock to start
         insertion_sort (array, array_size); // insertion sort called 
-    stop = clock();
+    stop = clock(); // assigning end clock to stop
   
-    *average += (stop - start) / (CLOCKS_PER_SEC / 1000); 
-    cout<< left << setw(5) << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing to console (mS)
-    file << (stop - start) / (CLOCKS_PER_SEC / 1000) << " "; // outputs the timing numbers to out file (mS)*/
+    *average += ((stop - start) / (CLOCKS_PER_SEC / 1000)); // addes a running value for time 3 trials
+    cout<< left << setw(5) << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing to console (mS)
+    file << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing numbers to out file (mS)*/
 
     
 } 

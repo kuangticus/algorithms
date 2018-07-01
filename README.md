@@ -29,8 +29,8 @@ All of th CPP files like so:
 
 g++ insertsort.cpp /* after running the program the output file will be "insert.out" */
 g++ mergesort.cpp /* after running the program the output file will be "merge.out" */
-g++ insertTime.cpp /* after running the program the output will be on the console/terminal and file "insertTime.out" */
-g++ mergeTime.cpp /* after running the program the output will be on the console/terminal and file "mergeTime.out" */
+g++ insertTime.cpp /* after running the program the output will be on the console/terminal and file "insertTime.txt" */
+g++ mergeTime.cpp /* after running the program the output will be on the console/terminal and file "mergeTime.txt" */
 
 /*************************************************************************************************************************/
 

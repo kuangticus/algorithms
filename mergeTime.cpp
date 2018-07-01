@@ -24,7 +24,7 @@ int main () {
     int size = 0, average = 0;
     ofstream mergeTime; // creates an object insertTime for output file
 
-    mergeTime.open("mergeTime.out"); // opens a mergeTime.out file to store the times values 
+    mergeTime.open("mergeTime.txt"); // opens a mergeTime.out file to store the times values 
     srand (time(NULL)); //seeds the random function generator
 
     for (int i = 0; i < array_size; i++){ // this loop wil run 14 times to reach n of 70000
