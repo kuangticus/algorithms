@@ -67,6 +67,7 @@ As for the tables created from merge_best_worst.cpp and insert_best_worst.cpp th
 | Case Condition | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
 
 /**************************************************************************************************************************/ 
+
  Text files
  
  The two text files that are include in the zip are mergeTime.txt and insertTime.cpp, these are the runtime tables for the merge
