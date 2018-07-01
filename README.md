@@ -57,4 +57,8 @@ Format of the tables in mergeTime.out and insertTime.out
 this format will be true for both mergeTime.out and insertTime.out, the n sizes that will be output range from 5000 - 70000
 on increments of 5000 everytime.
 
+As for the tables created from merge_best_worst.cpp and insert_best_worst.cpp that formatting is:
+
+| Case Condition | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
+
 /**************************************************************************************************************************/ 
