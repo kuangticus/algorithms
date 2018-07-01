@@ -10,9 +10,9 @@ insertTime.cpp
 
 mergeTime.cpp
 
-insertTime.out
+insertTime.txt
 
-mergeTime.out
+mergeTime.txt
 
 merge_best_worst.cpp
 
