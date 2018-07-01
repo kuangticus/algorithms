@@ -1,10 +1,10 @@
 /**************************************************************************************************
- ** insertTime.cpp 
+ ** insert_best_worst.cpp 
  ** WeiHao Kuang
  ** 06/28/2018
- ** Insertion sort algorithm run time calculation
+ ** Insertion sort algorithm run time calculation for best and worst cases
  ** There is not external input, the arrays are filled internally via random # generator
- ** Output file "insertTime.txt"
+ ** Output file "insert_best_worst.txt"
 **************************************************************************************************/
 #include<iostream>
 #include<fstream>
@@ -12,9 +12,7 @@
 #include<ctime>
 #include<iomanip>
 
-
 using namespace std;
-
 
 void insertion_sort(int*, int); 
 void timer(int*, int, ofstream&, int*);
@@ -109,6 +107,4 @@ void timer (int *array, int array_size, ofstream &file, int *average){
     *average += ((stop - start) / (CLOCKS_PER_SEC / 1000)); // addes a running value for time 3 trials
     cout<< left << setw(5) << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing to console (mS)
     file << ((stop - start) / (CLOCKS_PER_SEC / 1000)) << " "; // outputs the timing numbers to out file (mS)*/
-
-    
 } 
