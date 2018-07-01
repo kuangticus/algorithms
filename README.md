@@ -3,12 +3,19 @@
 In this zip there will be:
 
 insertsort.cpp
+
 mergesort.cpp
+
 insertTime.cpp
+
 mergeTime.cpp
+
 insertTime.out
+
 mergeTime.out
+
 merge_best_worst.cpp
+
 insert_best_wortst.cpp
 
 /*************************************************************************************************************************/
