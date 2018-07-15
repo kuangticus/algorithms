@@ -43,5 +43,3 @@ Format of the tables in changeTime.txt
 this format will be true for changeTime.txt and any table that are made from changeTime.cpp, the A sizes will range from 2900-10500 on increments of 2500, and n values will range from 0 - 8000 on increments of 400, the value inside the denmomination n will be randomly generated modded by 200.
 
 /**************************************************************************************************************************/
-
-Note: Since the n sizes are rather big for the stooge sort algorithm in stoogeTime.cpp the the program will take a some time to run. The reason that I used the larger n sizes is because they show the relationship between n size and runtime very well on the graphs.
