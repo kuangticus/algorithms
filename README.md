@@ -36,11 +36,11 @@ g++ changeTime.cpp /* after running the program the output file will be "changeT
 
 /*************************************************************************************************************************/
 
-Format of the tables in mergeTime.out and insertTime.out
+Format of the tables in changeTime.txt
 
-| n size | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
+| Time (mS) | A value | n value  |
 
-this format will be true for both mergeTime.out and insertTime.out, the n sizes that will be output range from 500 - 7500 on increments of 500 everytime.
+this format will be true for changeTime.txt and any table that are made from changeTime.cpp, the A sizes will range from 2900-10500 on increments of 2500, and n values will range from 0 - 8000 on increments of 400, the value inside the denmomination n will be randomly generated modded by 200.
 
 /**************************************************************************************************************************/
 
