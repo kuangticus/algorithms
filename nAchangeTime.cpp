@@ -1,5 +1,5 @@
 /*******************************************************************************
- ** changeTime.cpp
+ ** nAchangeTime.cpp
  ** WeiHao Kuang
  ** 07/11/2018
  ** Minimum change maker algorithm, finds exact change, and times it
