@@ -22,7 +22,8 @@ change.cpp is a program that looks for the minimum change that can be used to ma
 
 changeTime.cpp and changeTime.txt fullfill question 6 of the homework
 
-changeTime.cpp times how long it take to find the minimum change, when n and A are both changing. 
+changeTime.cpp has two function modes default mode is T(A) data timing, and the second mode is T(n) data timing, to switch to 
+T(n) data timing, comment out lines 45, 49, and 60-61. Also, uncomment lines 44, 48, and 58-59 in the file.
 
 nAchangeTime.cpp part of the code the fulfulls question 6 of the homework: this program looks for the T(nA) data table
 
