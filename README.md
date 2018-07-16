@@ -36,6 +36,7 @@ All of th CPP files like so:
 g++ change.cpp /* after running the program the output file will be "change.txt" */
 
 g++ changeTime.cpp /* after running the program the output file will be "changeTime.txt" */
+changeTime.txt will either hold data for T(n) or T(A) refer to CPP file notes on switch between modes.
 
 g++ nAchangeTime.cpp /* after running the program the output file will be "changeTime.txt" */
 
