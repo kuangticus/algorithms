@@ -95,7 +95,7 @@ long int min_change(vector<long int> coin_denom, long int size_coins,
     //for loop is used here to make all of the values from used_table
     // infinite
   	for (int i = 1; i <= change_amount ; i++) {
-    		min_table[i] = INT_MAX; // INT_MAX essentially makes the value zero
+    		min_table[i] = INT_MAX; // INT_MAX essentially makes the value infinity
     		used_table[i]= -1; // initializises the coins used processes
   	}
 

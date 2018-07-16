@@ -42,11 +42,9 @@ int main () {
     while ( increase != 8000 ){
         increase = increase + 400; // increases 400 every iteration
         for ( int i = 0; i < increase; i++){
-        //for ( int i = 0; i < 4000; i++){
             holder.push_back(  rand()%200 ); // push numbers to the vector
         }
-        amount =  8000; // the A value increase be 2500 every iter
-        //amount =  increase + 100; // the A value increase be 2500 every iter
+        amount =  increase ; // the A value increase be 2500 every iter
         // beginning the timing sequence
         // Once the stop variable recieve clock() the timing is over
         start = clock();
@@ -55,10 +53,8 @@ int main () {
         stop = clock();
         // Calculating the time while simultaneously writing to the external
         // where things are stored
-        write_file << increase << ' ' <<((stop - start) / (CLOCKS_PER_SEC / 1000))
-                     << endl;
-        /*write_file << amount << ' ' <<((stop - start) / (CLOCKS_PER_SEC / 1000))
-                   << endl;*/
+        write_file <<  amount << " " << ((stop - start) / (CLOCKS_PER_SEC / 1000))
+                   << endl;
 
         holder.clear(); // flushes the vector for next use
     }
@@ -86,7 +82,7 @@ long int min_change(vector<long int> coin_denom, long int size_coins,
     //for loop is used here to make all of the values from used_table
     // infinite
   	for (int i = 1; i <= change_amount ; i++) {
-    		min_table[i] = INT_MAX; // INT_MAX essentially makes the value infinity
+    		min_table[i] = INT_MAX; // INT_MAX essentially makes the value zero
     		used_table[i]= -1; // initializises the coins used processes
   	}
 
