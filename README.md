@@ -6,9 +6,9 @@ change.cpp
 
 changeTime.cpp
 
-amount.txt
+nAchangeTime.cpp
 
-changeTime.txt
+amount.txt
 
 README.md
 
@@ -24,6 +24,8 @@ changeTime.cpp and changeTime.txt fullfill question 6 of the homework
 
 changeTime.cpp times how long it take to find the minimum change, when n and A are both changing. 
 
+nAchangeTime.cpp part of the code the fulfulls question 6 of the homework: this program looks for the T(nA) data table
+
 /************************************************************************************************************************/
 
 CPP compile notes and running notes
@@ -34,13 +36,24 @@ g++ change.cpp /* after running the program the output file will be "change.txt"
 
 g++ changeTime.cpp /* after running the program the output file will be "changeTime.txt" */
 
+g++ nAchangeTime.cpp /* after running the program the output file will be "changeTime.txt" */
+
 /*************************************************************************************************************************/
+Textfile notes:
 
 Format of the tables in changeTime.txt
 
-| Time (mS) | A value | n value  |
+For graphs T(n) table format:
 
-this format will be true for changeTime.txt and any table that are made from changeTime.cpp, the A sizes will range from 2900-10500 on increments of 2500, and n values will range from 0 - 8000 on increments of 400, the value inside the denmomination n will be randomly generated modded by 200.
+| n value | Time (mS) |
+
+For graphs T(A) table format:
+
+| A value | Time (mS) |
+
+For graphs T(aA) table format:
+
+| Value of nA | Time (mS) |
 
 Format of change.txt will be the same as it is described in the homework hand out:
 
