@@ -22,16 +22,17 @@ CPP compile notes and running notes
 
 All of th CPP files like so:
 
-g++ act.cpp /* after running the program the output file will be "actResults.out" */ aslo the the results of the w
+g++ act.cpp // after running the program the output file will be "actResults.out"; aslo the the results of the from the 
+selection will be printed onto the terminal as well.
 
 /*************************************************************************************************************************/
 
-Format of the tables in mergeTime.out and insertTime.out
+Output Formatting
 
-| n size | trial 1 time (mS) | trial 2 time (mS) | trial 3 time (mS) | Average time (mS) |
+First line: Set #
 
-this format will be true for both mergeTime.out and insertTime.out, the n sizes that will be output range from 500 - 7500 on increments of 500 everytime.
+Second line: # of activities selected
+
+Third line: activities in the correct order
 
 /**************************************************************************************************************************/
-
-Note: Since the n sizes are rather big for the stooge sort algorithm in stoogeTime.cpp the the program will take a some time to run. The reason that I used the larger n sizes is because they show the relationship between n size and runtime very well on the graphs.
