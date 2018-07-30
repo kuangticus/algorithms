@@ -59,6 +59,7 @@ wrestler3.txt is:
 
 Yes possible
 Babyfaces :  A   B   C   D   E
+
 Heels :  V   W   X   Y   Z
 
 wrestler_HW_ex.txt is:
