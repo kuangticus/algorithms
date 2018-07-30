@@ -27,6 +27,12 @@ All of th CPP files like so:
 
 g++ wrestler.cpp // after running the program the output will be printed onto the terminal.
 
+To run the program you will need to to it like so: 
+
+"executable_name" "input_source.txt"
+
+Example: a.out wrestler2.txt
+
 /*************************************************************************************************************************/
 
 Output Formatting
