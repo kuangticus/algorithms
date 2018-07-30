@@ -52,20 +52,25 @@ wrestler1.txt is:
 wrestler2.txt is:
 
 Yes Possible
+
 Babyfaces: Bear Maxx Duke
+
 Heels: Killer Knight Samson
 
 wrestler3.txt is:
 
 Yes possible
+
 Babyfaces :  A   B   C   D   E
 
 Heels :  V   W   X   Y   Z
 
 wrestler_HW_ex.txt is:
 
-Yes
+Yes possible
+
 Babyfaces: Ace Jax Stone
+
 Heels: Biggs Duke
 
 
