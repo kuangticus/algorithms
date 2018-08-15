@@ -10,7 +10,7 @@ bin.txt
 
 binIP.cpp // not included yet
 
-binEC.txt 
+binEC.txt // used to test the EC program
 
 README.md
 
