@@ -10,7 +10,7 @@ README.md
 
 /*************************************************************************************************************************/
 
-CPP file notes:
+CPP file notes: 
 
 stoogesort.cpp and stoogeTime.cpp fullfil question 5 of the homework.
 
