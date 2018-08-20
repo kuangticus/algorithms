@@ -51,7 +51,7 @@ g++ mergeTime.cpp /* after running the program the output will be on the console
 
 g++ merge_best_worst.cpp
 
-g++ insert_best_worst.cpp
+g++ insert_best_worst.cpp 
 
 /*************************************************************************************************************************/
 
