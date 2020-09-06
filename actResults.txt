@@ -1,0 +1,12 @@
+Set 1
+Numbers of activities selected = 4
+Activities: 2 4 8 11 
+
+Set 2
+Numbers of activities selected = 2
+Activities: 2 1 
+
+Set 3
+Numbers of activities selected = 3
+Activities: 2 4 6 
+
